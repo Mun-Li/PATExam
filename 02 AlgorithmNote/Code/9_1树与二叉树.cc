@@ -4,9 +4,9 @@ using namespace std;
 
 int main() {
   int n{}, m{};
-  cin >> n >> m;  // 输入顶点数和边数，判断是否为一颗树
+  cin >> n >> m;  // 杈撳叆椤剁偣鏁板拰杈规暟锛屽垽鏂槸鍚︿负涓�棰楁爲
 
-  if (m == n - 1) {  // 树中的一些关系式确实要复习复习了
+  if (m == n - 1) {  // 鏍戜腑鐨勪竴浜涘叧绯诲紡纭疄瑕佸涔犲涔犱簡
     cout << "Yes";
   } else {
     cout << "No";

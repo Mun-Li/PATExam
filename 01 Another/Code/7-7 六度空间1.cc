@@ -10,7 +10,7 @@ struct Node {
   int v;
   int w;
   Node(int _v, int _w) : v(_v), w(_w){};
-};  // ¶¥µã·½Ê½
+};  // é¡¶ç‚¹æ–¹å¼
 
 int N{}, M{};
 vector<Node> Graph[Max_N]{};
@@ -19,11 +19,11 @@ bool flag[Max_N]{};
 double sum_num{};
 
 void Dijkstra(int start) {
-  dist[start] = 0;  // ÆğÊ¼¶¥µãµÄ¾àÀëÎª0
+  dist[start] = 0;  // èµ·å§‹é¡¶ç‚¹çš„è·ç¦»ä¸º0
 
-  // Ã¿¸ö¶¥µã¶¼Òª±»·ÃÎÊµ½
+  // æ¯ä¸ªé¡¶ç‚¹éƒ½è¦è¢«è®¿é—®åˆ°
   for (int i = 1; i <= N; ++i) {
-    // step1£ºÕÒµ½×î¶Ì¾àÀë£¬µ«Î´±»·ÃÎÊµÄ
+    // step1ï¼šæ‰¾åˆ°æœ€çŸ­è·ç¦»ï¼Œä½†æœªè¢«è®¿é—®çš„
     int u = -1, max_value = MY_INF;
     for (int j = 1; j <= N; ++j) {
       if (dist[j] < max_value && !flag[j]) {
@@ -31,13 +31,13 @@ void Dijkstra(int start) {
         max_value = dist[j];
       }
     }
-    if (u == -1) {  // ÆäÓà¶¥µã¶¼²»Á¬Í¨
+    if (u == -1) {  // å…¶ä½™é¡¶ç‚¹éƒ½ä¸è¿é€š
       return;
     }
 
-    // step2£º´Ó¸Ã¶¥µã¿ªÊ¼¸üĞÂ×î¶Ì¾àÀë
+    // step2ï¼šä»è¯¥é¡¶ç‚¹å¼€å§‹æ›´æ–°æœ€çŸ­è·ç¦»
     for (int j = 0; j < Graph[u].size(); ++j) {
-      if (dist[u] + Graph[u][j].w < dist[Graph[u][j].v]) {  // ¸üĞÂ×î¶ÌÈ¨ÖØ
+      if (dist[u] + Graph[u][j].w < dist[Graph[u][j].v]) {  // æ›´æ–°æœ€çŸ­æƒé‡
         dist[Graph[u][j].v] = Graph[u][j].w + dist[u];
       }
     }
@@ -46,7 +46,7 @@ void Dijkstra(int start) {
 }
 
 int main() {
-  // ÊäÈëÃ¿¸ö½áµãÖ®¼äµÄ¹ØÏµ£¬¾ØÕóÍ¼±íÊ¾
+  // è¾“å…¥æ¯ä¸ªç»“ç‚¹ä¹‹é—´çš„å…³ç³»ï¼ŒçŸ©é˜µå›¾è¡¨ç¤º
   cin >> N >> M;
   for (int i = 0; i < M; ++i) {
     int u{}, v{};
@@ -56,15 +56,15 @@ int main() {
   }
 
   for (int i = 1; i <= N; ++i) {
-    // step1: ÆäÓà¶¥µãµÄ¾àÀëÏÈ¼ÙÉè¶¼ÎªÎŞÇî´ó
+    // step1: å…¶ä½™é¡¶ç‚¹çš„è·ç¦»å…ˆå‡è®¾éƒ½ä¸ºæ— ç©·å¤§
     fill(dist + 1, dist + 1 + N, MY_INF);
     fill(flag + 1, flag + 1 + N, false);
     sum_num = 0;
 
-    // step2: ¼ÆËã´ÓÃ¿Ò»¸ö¶¥µã³ö·¢µ½Í¼ÖĞÆäÓà¶¥µãµÄ×î¶Ì¾àÀë
+    // step2: è®¡ç®—ä»æ¯ä¸€ä¸ªé¡¶ç‚¹å‡ºå‘åˆ°å›¾ä¸­å…¶ä½™é¡¶ç‚¹çš„æœ€çŸ­è·ç¦»
     Dijkstra(i);
 
-    // step3£ºÍ³¼ÆÖ®¼äµÄ¾àÀëĞ¡ÓÚ6µÄÊıÁ¿
+    // step3ï¼šç»Ÿè®¡ä¹‹é—´çš„è·ç¦»å°äº6çš„æ•°é‡
     for (int j = 1; j <= N; ++j) {
       if (dist[j] <= 6) {
         ++sum_num;
