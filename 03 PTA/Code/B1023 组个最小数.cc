@@ -1,6 +1,7 @@
 // 4_4 贪心
 // B1023 组个最小数
-//
+// 参考示例：https://www.liuchuo.net/archives/549
+// 别人的代码是真的简洁啊
 // ========================
 
 #include <iostream>
@@ -18,7 +19,7 @@ int main() {
   }
 
   for (int i = 1; i <= all_num; ++i) {
-    if (i == 1) {
+    if (i == 1) {  // 数字的第一位
       for (int j = 1; j <= 9; ++j) {
         if (num[j] != 0){
           ans = ans + char(48+j);
@@ -26,7 +27,7 @@ int main() {
           break;
         }
       }
-    } else {
+    } else {  // 数字的其余位
       for (int j = 0; j <= 9; ++j) {
         if (num[j] != 0) {
           ans = ans + char(48 + j);
