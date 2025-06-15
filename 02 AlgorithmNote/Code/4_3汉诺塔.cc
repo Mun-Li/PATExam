@@ -15,7 +15,7 @@ void HanoiTower(const int n, const char A, const char B, const char C) {
         return;
     } else {
         HanoiTower(n-1, A, C, B);  // 1. 依靠C，将前n-1个盘子移到B
-        printf("%c->%c\n", A, C);    // 2. 将最后一个盘子n从A移到C
+        printf("%c->%c\n", A, C);  // 2. 将最后一个盘子n从A移到C
         HanoiTower(n-1, B, A, C);  // 3. 依靠A，将B中的n-1个盘子移到C
     }
 }
