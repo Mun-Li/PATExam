@@ -5,7 +5,7 @@
  * @version:   1.0
  * @date:      2025-06-09
  * @brief:     
- * @userguide: 
+ * @userguide: 这问题是人想出来的？？？
  */
 #include <cstdio>
 #include <cmath>
@@ -17,7 +17,7 @@ using namespace std;
 struct Point {
     int x;
     int y;
-    Point(int _x, int _y) : x(_x), y(_y) {};
+    Point(int _x, int _y) : x(_x), y(_y) {};  // 构造函数
 };
 
 vector<Point> AllPoint;
