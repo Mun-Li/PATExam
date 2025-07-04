@@ -12,7 +12,7 @@
 #include "cmath"
 #include "cstring"
 
-#define MAX_N (3 * 3 * 3 * 3 * 3 * 3 * 3)  // 1 <= n <= 7;
+#define MAX_N (3 * 3 * 3 * 3 * 3 * 3)  // 1 <= n <= 7;
 
 char g_matX[MAX_N][MAX_N];  // TODO: char类型的初始化?
 
@@ -55,9 +55,9 @@ int main ()
     memset(g_matX, ' ', sizeof(g_matX));   // TODO: char类型的初始化?
     scanf("%d", &n);
     nx = (int)pow(3.0, n - 1);
-    GenMatrixX(nx, 1, 1);
-    for (int i = 1; i <= nx; ++i) {
-        for (int j = 1; j <= nx; ++j) {
+    GenMatrixX(nx, 0, 0);
+    for (int i = 0; i < nx; ++i) {
+        for (int j = 0; j < nx; ++j) {
             // TODO 字符串的打印 : ' ' / " " / %c / %s
             printf("%c", g_matX[i][j]);
         }
