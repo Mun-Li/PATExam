@@ -13,14 +13,15 @@
 using namespace std;
 
 int n = 0;
+vector<int> Input;
 vector<int> tmp;
 vector<vector<int>> result;
 
 void GetSubSet(int idx) {
-    if (idx == n + 1) {
+    if (idx == n) {
         result.push_back(tmp);
     } else {
-        tmp.push_back(idx);
+        tmp.push_back(Input[idx]);
         GetSubSet(idx + 1);
         tmp.pop_back();
         GetSubSet(idx + 1);
@@ -33,7 +34,11 @@ bool CmpResult(vector<int> &A, vector<int> &B) {
 
 int main() {
     scanf("%d", &n);
-    GetSubSet(1);
+    for (int i = 0; i < n; ++i) {
+        Input.push_back(0);
+        scanf("%d", &Input[i]);
+    }
+    GetSubSet(0);
     sort(result.begin(), result.end(), CmpResult);
     for(int i = 0; i < result.size(); ++i) {
         for(int j = 0; j + 1 < result[i].size(); ++j) {
